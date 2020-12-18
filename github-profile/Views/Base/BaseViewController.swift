@@ -12,12 +12,25 @@ class BaseViewController: UIViewController, NetworkCheckObserver {
     
     var warningLabel: UILabel?
     
+    var isOnline: Bool {
+        return NetworkCheck.sharedInstance().isOnline
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if isOnline {
+            hideNoNetworkWarning()
+        }
+        else {
+            showNoNetworkWarning()
+        }
+        
         NetworkCheck.sharedInstance().addObserver(observer: self)
     }
     
@@ -29,6 +42,7 @@ class BaseViewController: UIViewController, NetworkCheckObserver {
     deinit {
         NetworkCheck.sharedInstance().removeObserver(observer: self)
     }
+    
     
     // MARK: - Methods
     
