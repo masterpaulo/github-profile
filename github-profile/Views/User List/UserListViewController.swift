@@ -24,7 +24,6 @@ class UserListViewController: BaseTableViewController {
         setupViews()
         
         vm.viewDelegate = self
-        vm.loadData()
         
         
     }
@@ -32,6 +31,8 @@ class UserListViewController: BaseTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateView()
+        
+        vm.loadData()
     }
     
     override func viewDidLayoutSubviews() {
