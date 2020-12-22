@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210FC5182591B9140021CE21 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210FC5172591B9140021CE21 /* BaseNavigationController.swift */; };
 		2161F40B258A085C003CCE13 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161F40A258A085C003CCE13 /* APIManager.swift */; };
 		2161F40D258A0A87003CCE13 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161F40C258A0A87003CCE13 /* APIRouter.swift */; };
 		2161F410258A42C5003CCE13 /* NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161F40F258A42C5003CCE13 /* NetworkCheck.swift */; };
@@ -84,6 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		210FC5172591B9140021CE21 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		2161F40A258A085C003CCE13 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		2161F40C258A0A87003CCE13 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		2161F40F258A42C5003CCE13 /* NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheck.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				2198E1FC2589C2E200EACA87 /* BaseTableViewModel.swift */,
 				2198E1FE2589C69700EACA87 /* BaseTableViewController.swift */,
 				2198E20D2589EA8F00EACA87 /* BaseViewController.swift */,
+				210FC5172591B9140021CE21 /* BaseNavigationController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				2198E2042589CCE000EACA87 /* Collection+SafeIndex.swift in Sources */,
 				21B26869258B29DB004B0C44 /* IQKeyboardManager+Toolbar.swift in Sources */,
 				2161F41C258A7DEA003CCE13 /* LoadingCellViewModel.swift in Sources */,
+				210FC5182591B9140021CE21 /* BaseNavigationController.swift in Sources */,
 				21B2687E258B45B1004B0C44 /* CodingUserInfoKey+Context.swift in Sources */,
 				21B26868258B29DB004B0C44 /* IQKeyboardManager+OrientationNotification.swift in Sources */,
 				21B2685E258B29DB004B0C44 /* IQToolbar.swift in Sources */,
@@ -753,14 +757,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A38A2SP759;
+				DEVELOPMENT_TEAM = 3MR9FP2RVW;
 				INFOPLIST_FILE = "github-profile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.local.github-profile";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zip.git;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -774,14 +778,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A38A2SP759;
+				DEVELOPMENT_TEAM = 3MR9FP2RVW;
 				INFOPLIST_FILE = "github-profile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.local.github-profile";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zip.git;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

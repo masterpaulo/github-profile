@@ -10,18 +10,16 @@ import Network
 
 class BaseTableViewController: UITableViewController, NetworkCheckObserver {
     
-    var warningLabel: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         registerCells()
-        
-        //NetworkCheck.sharedInstance().addObserver(observer: self)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         NetworkCheck.sharedInstance().addObserver(observer: self)
     }
     
@@ -54,45 +52,11 @@ class BaseTableViewController: UITableViewController, NetworkCheckObserver {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func showNoNetworkWarning() {
-        guard let nav = self.navigationController else { return }
-        let warningLabel = UILabel()
-        warningLabel.backgroundColor = .red
-        warningLabel.textColor = . white
-        warningLabel.textAlignment = .center
-        warningLabel.text = "No connection"
-        warningLabel.font = UIFont.systemFont(ofSize: 12)
-        warningLabel.translatesAutoresizingMaskIntoConstraints = false
-        nav.view.addSubview(warningLabel)
-        nav.view.bringSubviewToFront(warningLabel)
-        
-        NSLayoutConstraint.activate([
-            warningLabel.heightAnchor.constraint(equalToConstant: 20),
-            warningLabel.bottomAnchor.constraint(equalTo: nav.view.bottomAnchor),
-            warningLabel.leadingAnchor.constraint(equalTo: nav.view.leadingAnchor),
-            warningLabel.trailingAnchor.constraint(equalTo: nav.view.trailingAnchor)
-        ])
-        
-        self.warningLabel = warningLabel
-        
-        nav.view.layoutIfNeeded()
-    }
-    
-    func hideNoNetworkWarning() {
-        warningLabel?.removeFromSuperview()
-        warningLabel = nil
-    }
-    
     // MARK: - NetworkCheckObserver
     
     func networkStatusDidChange(status: NWPath.Status) {
         print("[BaseTableViewController:NetworkCheckObserver] Network status did change to: \(status)")
-        if status == .satisfied {
-            hideNoNetworkWarning()
-        }
-        else {
-            showNoNetworkWarning()
-        }
+
     }
 }
 
