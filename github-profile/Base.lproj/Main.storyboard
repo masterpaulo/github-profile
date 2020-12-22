@@ -58,6 +58,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
+                        <outlet property="noTableDataView" destination="w0A-dy-aMR" id="Der-Bh-Oe5"/>
                         <outlet property="searchBarView" destination="sYy-1o-xOl" id="4xX-XG-EDq"/>
                     </connections>
                 </tableViewController>

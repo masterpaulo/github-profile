@@ -10,6 +10,7 @@ import Foundation
 protocol UserListViewModelViewDelegate {
     func updateView()
     func showUserProfile(with userProfileVM: UserProfileViewModel)
+    func showNoTableData(_ show: Bool)
 }
 
 class UserListViewModel {
@@ -50,13 +51,22 @@ class UserListViewModel {
         let loadedUsers = DataManager.shared.userList
         if loadedUsers.count > 0 {
             self.userList = loadedUsers
-            self.viewDelegate?.updateView()
+            DispatchQueue.main.async {
+                self.viewDelegate?.updateView()
+            }
         }
         
         // else show empty table view
         
         if NetworkCheck.sharedInstance().isOnline {
             getUsers()
+        }
+        else {
+            if self.userList.isEmpty {
+                DispatchQueue.main.async {
+                    self.viewDelegate?.showNoTableData(true)
+                }
+            }
         }
     }
     
@@ -123,6 +133,11 @@ extension UserListViewModel: BaseTableViewModelProtocol {
 
 extension UserListViewModel {
     func getUsers(since: Int = 0, pageSize: Int? = nil) {
+        guard NetworkCheck.sharedInstance().isOnline else { return }
+        DispatchQueue.main.async {
+            self.viewDelegate?.showNoTableData(false)
+        }
+        
         APIManager().getUsers(since: since, pageSize: pageSize) { result in
             self.isLoadingMore = false
             switch result {
@@ -160,9 +175,17 @@ extension UserListViewModel {
                 // Signal the view delegate to update view in main thread
                 DispatchQueue.main.async {
                     self.viewDelegate?.updateView()
+                    if self.userList.isEmpty {
+                        self.viewDelegate?.showNoTableData(true)
+                    }
                 }
             case .failure(let error):
                 print(error)
+                if self.userList.isEmpty {
+                    DispatchQueue.main.async {
+                        self.viewDelegate?.showNoTableData(true)
+                    }
+                }
             }
         }
     }

@@ -14,6 +14,8 @@ class UserListViewController: BaseTableViewController {
     
     @IBOutlet var searchBarView: UISearchBar!
     
+    @IBOutlet var noTableDataView: UIView!
+    
     // MARK: - VC Life Cycle
     
     override func viewDidLoad() {
@@ -130,6 +132,10 @@ extension UserListViewController: UserListViewModelViewDelegate {
         let vc = UserProfileViewController.instantiate(fromAppStoryboard: .main)
         vc.vm = userProfileVM
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showNoTableData(_ show: Bool) {
+        tableView.backgroundView = show ? noTableDataView : nil
     }
 }
 
